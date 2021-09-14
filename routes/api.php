@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+//http://127.0.0.1:8000/api/v1
+Route::prefix('v1')->group(function () {
+    Route::get('students', [StudentController::class,'getAllStudents']);
 });
