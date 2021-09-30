@@ -18,7 +18,7 @@ class StudentTest extends TestCase
          ->assertStatus(Response::HTTP_OK)
          ->assertJsonStructure(
              [
-                 'status',
+                 'something',
                  'message',
                  'data' => [
                      '*' =>[
